@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server",
     "dev": "nodemon server",
+    "seed": "node seeds/seed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,10 +21,13 @@
   },
   "homepage": "https://github.com/briannawoodruff/tech-blog-mvc#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.2",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
     "express-session": "^1.17.2",
     "handlebars": "^4.7.7",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "sequelize": "^6.12.5"
   }
 }
