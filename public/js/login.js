@@ -12,7 +12,7 @@ async function loginFormHandler(event) {
         });
 
         if (response) {
-            document.location.replace('/');
+            document.location.replace('/dashboard');
         } else {
             alert('Failed to log in.');
         }

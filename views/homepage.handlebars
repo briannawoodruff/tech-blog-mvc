@@ -1,0 +1,9 @@
+<div class="">
+  {{#each posts as |post|}}
+    {{> post-info post }}
+  {{/each}}
+</div>
+
+<div class="new-post-btn form-group">
+      <button class="btn btn-primary" type="submit"><a href="/dashboard/create">Add New Post</a></button>
+</div>

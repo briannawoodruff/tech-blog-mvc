@@ -14,8 +14,8 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    justify-content: flex-start;
+    /* min-height: 100vh; */
+    /* justify-content: flex-start; */
     background-color: var(--quatrinary);
 }
   
@@ -42,7 +42,7 @@ h1 {
 main {
     display: flex;
     flex-wrap: wrap;
-    flex-grow: 1;
+    /* flex-grow: 1; */
 }
   
 aside {
@@ -60,7 +60,6 @@ nav {
 }
   
 nav a {
-    color: var(--light);
     padding: 14px 20px;
     text-decoration: none;
     text-align: center;
@@ -69,6 +68,10 @@ nav a {
 nav a:hover {
     color: var(--secondary);
     background-color: var(--dark);
+}
+
+ul {
+    list-style-type: none;
 }
   
 .gallery {
@@ -90,6 +93,12 @@ nav a:hover {
     font-size: 100%;
     transition: color 0.1s;
     margin-left: 16px;
+}
+
+.new-post-btn a {
+    width: 25vw;
+    padding: 20px;
+    color: var(--light);
 }
   
 img {
@@ -114,16 +123,20 @@ img {
 .card {
     margin: 20px;
     flex: 0 1 300px;
+    padding: 20px;
     border: 7px double var(--dark);
     border-radius: 10px;
-    background-color: var(--light);
-    color: var(--dark);
+    background-color: #577a7c;
+    color: var(--light);
+}
+
+.card span {
+    text-decoration: none;
+    font-size: 15px;
+    float: right;
 }
   
 .login-card {
-    /* margin: 0 0 20px 0; */
-    /* flex: 0 0 50%; */
-    /* max-width: 50%; */
     width: 25vw;
     padding: 20px;
     border: 3px solid var(--dark);

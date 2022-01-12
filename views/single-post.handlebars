@@ -1,0 +1,11 @@
+{{#if loggedIn}}
+<div class="col-2"> 
+    <h2 class="page-title">Your Posts</h2>
+    <ul class="login-card">
+        <li>
+            {{> post-info post}}
+            <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Post</a>
+        </li>
+    </ul>
+</div>
+{{/if}}

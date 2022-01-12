@@ -17,7 +17,7 @@
       <a href="/">Homepage</a>
       <a href="/dashboard">Dashboard</a>
       <a href="/dashboard/create-post">Create Post</a> |
-      <button class="no-button" id="logout">Logout</button>
+      <button class="btn-no-style" id="logout">Logout</button>
       {{else}}
       <a href="/">Homepage</a>
       <a href="/login">Login</a>
@@ -42,7 +42,7 @@
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
-  <script src="../../public/js/logout.js"></script>
+  <script src="/js/logout.js"></script>
   {{/if}}
 </body>
 
