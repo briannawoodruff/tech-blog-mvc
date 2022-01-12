@@ -1,11 +1,22 @@
-{{#if loggedIn}}
-<div class="col-2"> 
-    <h2 class="page-title">Your Posts</h2>
-    <ul class="login-card">
-        <li>
-            {{> post-info post}}
-            <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Post</a>
-        </li>
-    </ul>
+<div class="card">
+    <h2>{{post.title}}</h2>
+    <h3>{{post.user.username}}<span>{{format_date post.date_created}}</span></h4>
+        <p>{{post.post_text}}</p>
+        {{> comments post.comments}}
+<hr>
+        <form class="form comment-form">
+            {{#if logged_in}}
+            <div class="form-group">
+                <label for="add-comment">New Comment:</label>
+                <input class="form-input" type="text" id="comment-body" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Add Comment</button>
+            </div>
+        </form>
+        {{/if}}
+
+        {{#if logged_in}}
+        <script src="/js/comment.js"></script>
+        {{/if}}
 </div>
-{{/if}}

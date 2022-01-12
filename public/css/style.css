@@ -23,6 +23,10 @@ a {
     color: var(--dark);
     text-decoration: none;
 }
+
+h2 a:hover {
+    color: var(--primary);
+}
   
 a:visited {
     color: inherit;
@@ -38,7 +42,16 @@ header {
 h1 {
     padding-left: 20px;
 }
-  
+
+h2 {
+    color: var(--dark);
+}
+
+hr {
+    border-color: black;
+    margin-top: 25px;
+}
+
 main {
     display: flex;
     flex-wrap: wrap;
@@ -57,6 +70,7 @@ nav {
     display: flex;
     background-color: var(--secondary);
     padding-left: 20px;
+    color: var(--dark);
 }
   
 nav a {
@@ -128,6 +142,16 @@ img {
     border-radius: 10px;
     background-color: #577a7c;
     color: var(--light);
+}
+
+.comment-card {
+    margin: 5px;
+    flex: 0 1 300px;
+    padding: 20px;
+    border: 7px double var(--dark);
+    border-radius: 10px;
+    background-color: var(--secondary);
+    color: var(--dark);
 }
 
 .card span {
