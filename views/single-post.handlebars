@@ -4,11 +4,11 @@
         <p>{{post.post_text}}</p>
         {{> comments post.comments}}
 <hr>
+        {{#if logged_in}}
         <form class="form comment-form">
-            {{#if logged_in}}
             <div class="form-group">
                 <label for="add-comment">New Comment:</label>
-                <input class="form-input" type="text" id="comment-body" />
+                <input class="form-input" type="text" id="comment-text" name="comment-body" />
             </div>
             <div class="form-group">
                 <button class="btn btn-primary" type="submit">Add Comment</button>

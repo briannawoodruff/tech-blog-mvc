@@ -88,7 +88,7 @@ ul {
     list-style-type: none;
 }
   
-.gallery {
+/* .gallery {
     flex: 4;
     background-color: #fff;
     padding: 50px;
@@ -96,7 +96,7 @@ ul {
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-}
+} */
   
 .btn-no-style {
     background: none;
@@ -116,23 +116,23 @@ ul {
     margin-bottom: 50px;
 }
   
-img {
+/* img {
     max-width: 100%;
     height: auto;
-}
+} */
   
-.painting {
+/* .painting {
     width: 50%;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 25px;
-}
+} */
   
-.painting-details {
+/* .painting-details {
     text-align: center;
     padding: 10px 20px;
     font-weight: bold;
-}
+} */
   
   /* CARDS */
 .card {
@@ -189,7 +189,7 @@ img {
     font-weight: bold;
 }
   
-.gallery-name {
+/* .gallery-name {
     text-transform: uppercase;
     letter-spacing: 3px;
     text-shadow: 2px 2px 5px var(--secondary);
@@ -198,7 +198,7 @@ img {
     padding-bottom: 30px;
     padding-right: 100px;
     padding-left: 100px;
-}
+} */
   
 /* LAYOUT */
 .container {
