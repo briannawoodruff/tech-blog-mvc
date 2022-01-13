@@ -4,8 +4,8 @@ async function newPostFormHandler(event) {
     const title = document.querySelector('#post-title').value.trim();
     const post_text = document.querySelector('#post-text').value.trim();
 
-    if (title && text) {
-        const response = await fetch(`/api/posts`, {
+    if (title && post_text) {
+        const response = await fetch(`/dashboard/create`, {
             method: 'POST',
             body: JSON.stringify({ title, post_text }),
             headers: { 'Content-Type': 'application/json' },

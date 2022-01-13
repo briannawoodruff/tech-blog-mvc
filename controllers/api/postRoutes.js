@@ -46,36 +46,36 @@ const isAuth = require('../../utils/auth');
 //     });
 // });
 
-// router.get('/', (req, res) => {
-//     Post.findAll({
-//         attributes: [
-//             'id',
-//             'title',
-//             'post_text',
-//             'date_created'
-//         ],
-//       order: [['date_created', 'DESC']],
-//       include: [
-//         {
-//             model: User,
-//             attributes: ['username']
-//         },
-//         {
-//             model: Comment,
-//             attributes: ['id', 'comment_text', 'post_id', 'user_id', 'date_created'],
-//             include: {
-//                 model: User,
-//                 attributes: ['username']
-//             }
-//         }
-//     ]
-//     })
-//       .then(postData => res.json(postData))
-//       .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//       });
-//   });
+router.get('/', (req, res) => {
+    Post.findAll({
+        attributes: [
+            'id',
+            'title',
+            'post_text',
+            'date_created'
+        ],
+      order: [['date_created', 'DESC']],
+      include: [
+        {
+            model: User,
+            attributes: ['username']
+        },
+        {
+            model: Comment,
+            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'date_created'],
+            include: {
+                model: User,
+                attributes: ['username']
+            }
+        }
+    ]
+    })
+      .then(postData => res.json(postData))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
 
 router.get('/:id', (req, res) => {
     Post.findOne({

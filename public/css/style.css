@@ -110,9 +110,10 @@ ul {
 }
 
 .new-post-btn a {
-    width: 25vw;
-    padding: 20px;
+    width: 15vw;
+    padding: 15px;
     color: var(--light);
+    margin-bottom: 50px;
 }
   
 img {

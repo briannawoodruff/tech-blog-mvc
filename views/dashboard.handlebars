@@ -1,19 +1,13 @@
 {{#if posts.length}}
-<div class="col-2"> 
-    <h2 class="page-title">Your Posts</h2>
-    <ul class="login-card">
-        {{#each posts as |post|}}
-        <li>
-            {{> post-info post}}
-            <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Post</a>
-        </li>
-        {{/each}}
-    </ul>
+<div>
+      {{#each posts as |post|}}
+      {{> post-info post }}
+      {{/each}}
 </div>
 {{/if}}
 
 <div class="new-post-btn form-group">
-      <button class="btn btn-primary" type="submit"><a href="/dashboard/create">Add New Post</a></button>
+      <a class="btn btn-primary" href="/dashboard/create">Add New Post</a>
 </div>
 
-<script src="/javascript/add-post.js"></script>
+<script src="/js/new-post.js"></script>
