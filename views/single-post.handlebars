@@ -3,8 +3,8 @@
     <h3>{{post.user.username}}<span>{{format_date post.date_created}}</span></h4>
         <p>{{post.post_text}}</p>
         {{> comments post.comments}}
-<hr>
         {{#if logged_in}}
+<hr>
         <form class="form comment-form">
             <div class="form-group">
                 <label for="add-comment">New Comment:</label>
