@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
-const isAuth = require('../utils/auth');
+// const isAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
     Post.findAll({
@@ -40,7 +40,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/post/:id', isAuth, (req, res) => {
+router.get('/post/:id', (req, res) => {
     Post.findOne({
       where: {
         id: req.params.id

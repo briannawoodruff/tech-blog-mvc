@@ -57,18 +57,18 @@ router.get('/', (req, res) => {
       order: [['date_created', 'DESC']],
       include: [
         {
+          model: Comment,
+          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'date_created'],
+          include: {
             model: User,
             attributes: ['username']
+          }
         },
         {
-            model: Comment,
-            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'date_created'],
-            include: {
-                model: User,
-                attributes: ['username']
-            }
-        }
-    ]
+          model: User,
+          attributes: ['username']
+        },
+      ]
     })
       .then(postData => res.json(postData))
       .catch(err => {
@@ -105,8 +105,10 @@ router.get('/:id', (req, res) => {
     })
       .then(postData => {
         const posts = postData.map(post => post.get({plain: true }));
-        res.render('single-post', { posts, logged_in: true });
-      
+        res.render('single-post', { 
+          posts, 
+          logged_in: req.session.logged_in 
+        });
         if (!postData) {
           res.status(404).json({ message: 'No post found with that id' });
           return;
@@ -132,29 +134,67 @@ router.post('/', isAuth, (req, res) => {
       });
   });
 
-router.put('/:id', isAuth, (req, res) => {
-    Post.update(
-      {
-        title: req.body.title,
-        post_text: req.body.post_text
-      },
-      {
-        where: {
-          id: req.params.id
-        }
-      }
-    )
-      .then(postData => {
-        if (!postData) {
-          res.status(404).json({ message: 'No post found with this id' });
-          return;
-        }
-        res.json(postData);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
+// router.get('/create', isAuth, (req, res) => {
+//   Post.findAll({
+//     where: {
+//       user_id: req.session.user_id
+//     },
+//     attributes: [
+//       'id',
+//       'title',
+//       'post_text',
+//       'date_created',
+//     ],
+//     include: [
+//       {
+//         model: Comment,
+//         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'date_created'],
+//         include: {
+//           model: User,
+//           attributes: ['username']
+//         }
+//       },
+//       {
+//         model: User,
+//         attributes: ['username']
+//       }
+//     ]
+//   })
+//     .then(postData => {
+//       const posts = postData.map(post => post.get({ plain: true }));
+//       res.render('create-post', { 
+//         posts, 
+//         logged_in: req.session.logged_in });
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
+
+// router.put('/:id', isAuth, (req, res) => {
+//     Post.update(
+//       {
+//         title: req.body.title,
+//         post_text: req.body.post_text
+//       },
+//       {
+//         where: {
+//           id: req.params.id
+//         }
+//       }
+//     )
+//       .then(postData => {
+//         if (!postData) {
+//           res.status(404).json({ message: 'No post found with this id' });
+//           return;
+//         }
+//         res.json(postData);
+//       })
+//       .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//       });
+//   });
 
 module.exports = router;

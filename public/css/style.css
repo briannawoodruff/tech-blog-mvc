@@ -138,6 +138,7 @@ img {
 .card {
     margin: 20px;
     flex: 0 1 300px;
+    width: 75vw;
     padding: 20px;
     border: 7px double var(--dark);
     border-radius: 10px;
