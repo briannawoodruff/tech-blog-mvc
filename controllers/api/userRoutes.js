@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
 const isAuth = require('../../utils/auth');
-// const sequelize = require('../../config/connection');
 
+// user GET - http://localhost:3001/api/users/
 router.get('/', (req, res) => {
   User.findAll({
     attributes: { exclude: ['password'] }
@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// user GET by id - http://localhost:3001/api/users/1
 router.get('/:id', (req, res) => {
   User.findOne({
     attributes: { exclude: ['password'] },
@@ -49,6 +50,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// user create/signup POST - http://localhost:3001/api/users/
 router.post('/', (req, res) => {
   User.create({
     username: req.body.username,
@@ -71,6 +73,7 @@ router.post('/', (req, res) => {
     });
 });
 
+// user login POST - http://localhost:3001/api/users/login
 router.post('/login', (req, res) => {
   User.findOne({
     where: {
@@ -100,6 +103,7 @@ router.post('/login', (req, res) => {
   });
 });
 
+// user logout if logged in POST - http://localhost:3001/api/users/logout
 router.post('/logout', isAuth, (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

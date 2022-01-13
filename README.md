@@ -12,7 +12,6 @@
   * [Contributing](#contributing)
   * [Tests](#tests)
   * [Questions](#questions)
-  <br />
   
   ## Usage:
   ![Demo gif](public/media/TechBlog.gif) <br />  <br /> The homepage displays all post created by users, you can login or sign up. Once logged in you can create a post and see it on your dashboard.

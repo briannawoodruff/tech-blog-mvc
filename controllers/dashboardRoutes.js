@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const isAuth = require('../utils/auth');
 
+// dashboard GET - http://localhost:3001/dashboard/
 router.get('/', isAuth, (req, res) => {
   Post.findAll({
     where: {
@@ -13,7 +14,7 @@ router.get('/', isAuth, (req, res) => {
       'post_text',
       'date_created',
     ],
-    // order: [['date_created', 'DESC']],
+    order: [['date_created', 'DESC']],
     include: [
       {
         model: Comment,
@@ -42,6 +43,7 @@ router.get('/', isAuth, (req, res) => {
     });
 });
 
+// dashboard GET post to edit - http://localhost:3001/dashboard/edit/1
 // router.get('/edit/:id', (req, res) => {
 //   Post.findOne({
 //     where: {
@@ -81,6 +83,7 @@ router.get('/', isAuth, (req, res) => {
 //     });
 // });
 
+// dashboard create-post GET - http://localhost:3001/dashboard/create
 router.get('/create', isAuth, (req, res) => {
   Post.findAll({
     where: {

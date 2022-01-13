@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Comment } = require('../../models');
 const isAuth = require('../../utils/auth');
 
+// find all comments - http://localhost:3001/api/comment/
 router.get('/', (req, res) => {
     Comment.findAll({})
       .then(commentData => res.json(commentData))
@@ -11,6 +12,7 @@ router.get('/', (req, res) => {
       });
 });
 
+// post a comment if logged in - http://localhost:3001/api/comment/
 router.post('/', isAuth, (req, res) => {
   if (req.session) {
     Comment.create({
