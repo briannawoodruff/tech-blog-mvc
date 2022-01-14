@@ -139,29 +139,29 @@ router.post('/', isAuth, (req, res) => {
   });
 
 // UPDATE post by id if logged in - http://localhost:3001/api/posts/1
-// router.put('/:id', isAuth, (req, res) => {
-//     Post.update(
-//       {
-//         title: req.body.title,
-//         post_text: req.body.post_text
-//       },
-//       {
-//         where: {
-//           id: req.params.id
-//         }
-//       }
-//     )
-//       .then(postData => {
-//         if (!postData) {
-//           res.status(404).json({ message: 'No post found with this id' });
-//           return;
-//         }
-//         res.json(postData);
-//       })
-//       .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//       });
-//   });
+router.put('/:id', isAuth, (req, res) => {
+    Post.update(
+      {
+        title: req.body.title,
+        post_text: req.body.post_text
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    )
+      .then(postData => {
+        if (!postData) {
+          res.status(404).json({ message: 'No post found with this id' });
+          return;
+        }
+        res.json(postData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
 
 module.exports = router;

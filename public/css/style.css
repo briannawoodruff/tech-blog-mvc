@@ -5,7 +5,6 @@
     --quatrinary: #6c6b67;
     --light: #e3e4e3;
     --dark: #182c23;
-    --error: rgb(228, 46, 1);
     --border-radius: 0.3rem;
 }
   
@@ -14,8 +13,6 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    /* min-height: 100vh; */
-    /* justify-content: flex-start; */
     background-color: var(--quatrinary);
 }
   
@@ -55,7 +52,6 @@ hr {
 main {
     display: flex;
     flex-wrap: wrap;
-    /* flex-grow: 1; */
 }
   
 aside {
@@ -88,16 +84,6 @@ ul {
     list-style-type: none;
 }
   
-/* .gallery {
-    flex: 4;
-    background-color: #fff;
-    padding: 50px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-} */
-  
 .btn-no-style {
     background: none;
     border: none;
@@ -115,24 +101,6 @@ ul {
     color: var(--light);
     margin-bottom: 50px;
 }
-  
-/* img {
-    max-width: 100%;
-    height: auto;
-} */
-  
-/* .painting {
-    width: 50%;
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-bottom: 25px;
-} */
-  
-/* .painting-details {
-    text-align: center;
-    padding: 10px 20px;
-    font-weight: bold;
-} */
   
   /* CARDS */
 .card {
@@ -161,6 +129,13 @@ ul {
     font-size: 15px;
     float: right;
 }
+
+.edit-link {
+    float: right;
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
   
 .login-card {
     width: 25vw;
@@ -188,17 +163,6 @@ ul {
     text-align: center;
     font-weight: bold;
 }
-  
-/* .gallery-name {
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    text-shadow: 2px 2px 5px var(--secondary);
-    border: 10px groove var(--light);
-    padding-top: 30px;
-    padding-bottom: 30px;
-    padding-right: 100px;
-    padding-left: 100px;
-} */
   
 /* LAYOUT */
 .container {

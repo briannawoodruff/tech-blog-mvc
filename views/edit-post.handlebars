@@ -1,0 +1,37 @@
+<div class="card">
+
+    <h2 class="page-title">Edit Post</h2>
+    <form class="form editpost-form">
+        <div class="form-group">
+            <label for="post-title">Title:</label>
+            <input class="form-input" type="text" id="post-title" value="{{post.title}}" />
+        </div>
+        <div class="form-group">
+            <label for="post-text">Text:</label>
+            <input class="form-input" type="text" id="post-text" value="{{post.post_text}}" />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Update Post</button>
+        </div>
+    </form>
+
+    {{> comments post.comments}}
+
+    {{#if logged_in}}
+<hr>
+        <form class="form comment-form">
+            <div class="form-group">
+                <label for="add-comment">New Comment:</label>
+                <input class="form-input" type="text" id="comment-text" name="comment-body" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Add Comment</button>
+            </div>
+        </form>
+        {{/if}}
+
+
+    <script src="/js/comment.js"></script>
+    <script src="/js/edit-post.js"></script>
+
+</div>

@@ -44,50 +44,10 @@ router.get('/', isAuth, (req, res) => {
 });
 
 // dashboard GET post to edit - http://localhost:3001/dashboard/edit/1
-// router.get('/edit/:id', (req, res) => {
-//   Post.findOne({
-//     where: {
-//       id: req.params.id
-//     },
-//     attributes: [
-//       'id',
-//       'title',
-//       'post_text',
-//       'date_created',
-//     ],
-//     include: [
-//       {
-//         model: Comment,
-//         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'date_created'],
-//         include: {
-//           model: User,
-//           attributes: ['username']
-//         }
-//       },
-//       {
-//         model: User,
-//         attributes: ['username']
-//       }
-//     ]
-//   })
-//     .then(postData => {
-//       if (!postData) {
-//         res.status(404).json({ message: 'No post found with that id' });
-//         return;
-//       }
-//       res.json(postData);
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
-
-// dashboard create-post GET - http://localhost:3001/dashboard/create
-router.get('/create', isAuth, (req, res) => {
-  Post.findAll({
+router.get('/edit/:id', isAuth, (req, res) => {
+  Post.findOne({
     where: {
-      user_id: req.session.user_id
+      id: req.params.id
     },
     attributes: [
       'id',
@@ -107,6 +67,49 @@ router.get('/create', isAuth, (req, res) => {
       {
         model: User,
         attributes: ['username']
+      }
+    ]
+  })
+    .then(postData => {
+      if (!postData) {
+        res.status(404).json({ message: 'No post found with that id' });
+        return;
+      }
+      const post = postData.get({ plain: true });
+      res.render('edit-post', {  
+        post,
+        logged_in: req.session.logged_in });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// dashboard create-post GET - http://localhost:3001/dashboard/create
+router.get('/create', isAuth, (req, res) => {
+  Post.findAll({
+    where: {
+      user_id: req.session.user_id
+    },
+    attributes: [
+      'id',
+      'title',
+      'post_text',
+      'date_created',
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ['username']
+      },
+      {
+          model: Comment,
+          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'date_created'],
+          include: {
+              model: User,
+              attributes: ['username']
+          }
       }
     ]
   })

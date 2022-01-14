@@ -1,5 +1,9 @@
 <div class="card">
-    <h2>{{post.title}}</h2>
+    <h2>{{post.title}}
+        {{#if logged_in}}
+        <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Post</a>
+        {{/if}}
+    </h2>
     <h3>{{post.user.username}}<span>{{format_date post.date_created}}</span></h4>
         <p>{{post.post_text}}</p>
         {{> comments post.comments}}
@@ -16,7 +20,5 @@
         </form>
         {{/if}}
 
-        {{#if logged_in}}
         <script src="/js/comment.js"></script>
-        {{/if}}
 </div>
