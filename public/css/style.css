@@ -95,6 +95,10 @@ ul {
     margin-left: 16px;
 }
 
+.delete-btn {
+    float: right;
+}
+
 .new-post-btn a {
     width: 15vw;
     padding: 15px;
